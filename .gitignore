@@ -1,0 +1,5 @@
+node_modules/
+dist/
+server.js
+ck.tar
+ck.7z

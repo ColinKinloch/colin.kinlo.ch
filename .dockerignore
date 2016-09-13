@@ -1,0 +1,6 @@
+.git
+.gitignore
+dist/
+node_modules/
+ck.tar
+ck.7z

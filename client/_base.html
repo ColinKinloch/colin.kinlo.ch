@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<head>{% block head %}
+  <meta charset=UTF-8>
+  <title>{{ title }}{% if title and site.title %} - {% endif %}{{ site.title }}</title>
+  <link rel=icon href="{{ site.root }}favicon/many.ico" sizes="16x16 32x32 48x48 64x64" type=image/vnd.microsoft.icon>
+  <link rel=icon href="{{ site.root }}favicon/any.svg" sizes=any type=image/svg+xml>
+  <link rel=icon href="{{ site.root }}favicon/2.png" sizes="2x2" type=image/png>
+  <link rel=icon href="{{ site.root }}favicon/4.png" sizes="4x4" type=image/png>
+  <link rel=icon href="{{ site.root }}favicon/8.png" sizes="8x8" type=image/png>
+  <link rel=icon href="{{ site.root }}favicon/16.png" sizes="16x16" type=image/png>
+  <link rel=icon href="{{ site.root }}favicon/32.png" sizes="32x32" type=image/png>
+  <link rel=icon href="{{ site.root }}favicon/48.png" sizes="48x48" type=image/png>
+  <link rel=icon href="{{ site.root }}favicon/64.png" sizes="64x64" type=image/png>
+  <meta name=viewport width=device-width content=width=device-width>
+  <link rel=stylesheet href="{{ site.root }}style.css">
+{% endblock %}</head>
+<body>
+  <header>
+    {% block header %}
+    <h1>{{ site.title }}</h1>
+    {% endblock %}
+  </header>
+  {% if navLinks %}<nav>
+    <ul>
+    {% for link in nav %}
+      <li><a href="{{ link.href }}">{{ link.label }}</a>{% endfor %}
+    </ul>
+  </nav>{% endif %}
+  {% block content %}
+  <script src="{{ site.root }}client.js"></script>
+  {% endblock %}
+</body>

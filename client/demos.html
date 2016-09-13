@@ -1,0 +1,17 @@
+{% set title = 'Demos' %}
+{% extends './_base.html' %}
+{% block head %}
+{{ super() }}
+<style>
+  html {
+    background-color: blue;
+  }
+</style>
+{% endblock%}
+{% block content %}
+  <main>
+    <section>
+      Some demos here {{ bubb }}
+    </section>
+  </main>
+{% endblock %}

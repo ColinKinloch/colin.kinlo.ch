@@ -1,0 +1,55 @@
+$fa-font-path: "./fonts";
+
+@import "font-awesome";
+
+html {
+  background: gainsboro;
+}
+
+a {
+  text-decoration: none;
+  &:hover { text-decoration: underline; }
+}
+
+nav ul {
+  display: flex;
+  padding: 0;
+
+  li {
+    display: block;
+    a { padding: 3px 8px; }
+  }
+}
+
+ul.social-list {
+  list-style: none;
+
+  li {
+    /* & a:before {
+      font-family: 'FontAwesome';
+      font-size: 28px;
+    }
+    &.github a:before { content: '\f09b'; }
+    &.linkedin a:before { content: '\f08c'; }
+    &.codepen a:before { content: '\f1cb'; }
+    &.shadertoy a:before { content: '\f06e'; } */
+    list-style-type: disc;
+    font-family: 'FontAwesome';
+    &.github { list-style-type: '\f09b'; }
+    &.linkedin { list-style-type: '\f08c'; }
+    &.codepen { list-style-type: '\f1cb'; }
+    &.shadertoy { list-style-type: '\f06e'; }
+  }
+}
+
+#avatar {
+  margin: 4px;
+  img { image-rendering: pixelated; }
+}
+
+@media (min-width: 600px) {
+  #avatar {
+    float: right;
+    margin: 10px;
+  }
+}

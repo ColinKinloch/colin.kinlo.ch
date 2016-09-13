@@ -1,0 +1,8 @@
+{
+  "root": "/",
+  "title": "Colin Kinloch",
+  "nav": [
+    { "label": "Home", "href": "/" },
+    { "label": "Demos", "href": "/demos.html" }
+  ]
+}
