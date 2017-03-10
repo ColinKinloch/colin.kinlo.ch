@@ -10,4 +10,7 @@ RUN npm run build
 # Ports: HTTP HTTPS
 EXPOSE 8080 8181
 
+# Volume: Let's Encrypt
+VOLUME [ "/etc/letsencrypt:ro" ]
+
 CMD [ "npm", "start" ]

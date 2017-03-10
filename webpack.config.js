@@ -61,7 +61,7 @@ module.exports = [
               presets: [
                 ['env', {
                   targets: {
-                    node: 6
+                    node: 'current'
                   },
                   modules: false
                 }]

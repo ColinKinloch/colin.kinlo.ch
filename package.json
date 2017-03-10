@@ -4,9 +4,9 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "build": "babel-node --presets es2015 tools/build",
-    "clean": "babel-node --presets es2015 tools/clean",
-    "lint": "babel-node --presets es2015 tools/lint",
+    "build": "babel-node --presets env tools/build",
+    "clean": "babel-node --presets env tools/clean",
+    "lint": "babel-node --presets env tools/lint",
     "serve": "node dist/server",
     "start": "npm run serve"
   },
@@ -29,8 +29,6 @@
     "babel-eslint": "^7.1.1",
     "babel-loader": "~6.4.0",
     "babel-preset-env": "^1.2.1",
-    "babel-preset-es2015": "^6.22.0",
-    "babel-preset-stage-3": "^6.22.0",
     "del": "^2.2.1",
     "eslint": "^3.5.0",
     "eslint-config-standard": "^7.0.1",
@@ -52,12 +50,18 @@
   "babel": {
     "presets": [
       [
-        "es2015",
+        "env",
         {
+          "targets": {
+            "node": "current",
+            "browsers": [
+              "last 2 versions",
+              "safari >= 7"
+            ]
+          },
           "modules": false
         }
-      ],
-      "stage-3"
+      ]
     ]
   },
   "eslintConfig": {
