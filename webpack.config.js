@@ -19,7 +19,19 @@ module.exports = [
         },
         {
           test: /\.js$/,
-          loader: 'babel-loader',
+          use: {
+            loader: 'babel-loader',
+            options: {
+              presets: [
+                ['env', {
+                  targets: {
+                    browsers: ["last 2 versions", "safari >= 7"]
+                  },
+                  modules: false
+                }]
+              ]
+            }
+          },
           exclude: /node_modules/
         }
       ]
@@ -43,7 +55,19 @@ module.exports = [
         },
         {
           test: /\.js$/,
-          loader: 'babel-loader',
+          use: {
+            loader: 'babel-loader',
+            options: {
+              presets: [
+                ['env', {
+                  targets: {
+                    node: 6
+                  },
+                  modules: false
+                }]
+              ]
+            }
+          },
           exclude: /node_modules/
         }
       ]

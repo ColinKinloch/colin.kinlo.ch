@@ -17,10 +17,34 @@ import styleProcessor from './style'
 import site from '../../site.json'
 import webpackConfig from '../../webpack.config'
 
+// TODO: Only for production
+Object.assign(webpackConfig, {
+    plugins: [
+        new webpack.LoaderOptionsPlugin({
+            minimize: true,
+            debug: false
+        }),
+        new webpack.optimize.UglifyJsPlugin({
+            beautify: false,
+            mangle: {
+                screw_ie8: true,
+                keep_fnames: true
+            },
+            compress: {
+                screw_ie8: true
+            },
+            comments: false
+        })
+    ]
+
+})
+
+console.log(webpackConfig)
+
 const nEnv = new nunjucks.Environment(new nunjucks.FileSystemLoader('.'),
 {})
 
-new Promise((resolve, reject) => fse.mkdirs('./dist/public/', resolve))
+new Promise((resolve, reject) => fse.ensureDir('./dist/public/', resolve))
 .then(() => {
   const styleJob = styleProcessor('./client/style.scss', './dist/public/style.css')
   .then(() => console.log('Style complete'))
@@ -51,13 +75,13 @@ new Promise((resolve, reject) => fse.mkdirs('./dist/public/', resolve))
         next(null, file)
       }))
       .pipe(ms((file, next) => {
-        let string = `{% extends '../_article.html' %} {% block content %}${file.contents.toString()}{% endblock %}`
+        // let string = `{% extends '../_article.html' %} {% block content %}${file.contents.toString()}{% endblock %}`
         const page = {
           site: site
         }
         const result = nEnv.renderString(file.contents.toString(), page)
-          file.contents = new Buffer(result)
-          next(null, file)
+        file.contents = new Buffer(result)
+        next(null, file)
       }))
       .pipe(vfs.dest('./dist/public/articles/'))
       .on('finish', resolve)
