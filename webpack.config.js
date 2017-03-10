@@ -15,11 +15,11 @@ module.exports = [
       loaders: [
         {
           test: /\.json$/,
-          loader: 'json'
+          loader: 'json-loader'
         },
         {
           test: /\.js$/,
-          loader: 'babel',
+          loader: 'babel-loader',
           exclude: /node_modules/
         }
       ]
@@ -39,11 +39,11 @@ module.exports = [
       loaders: [
         {
           test: /\.json$/,
-          loader: 'json'
+          loader: 'json-loader'
         },
         {
           test: /\.js$/,
-          loader: 'babel',
+          loader: 'babel-loader',
           exclude: /node_modules/
         }
       ]
